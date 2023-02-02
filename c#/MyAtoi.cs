@@ -2,7 +2,7 @@
 
 namespace LeetCode // Note: actual namespace depends on the project name.
 {
-    internal class Program
+    internal class MyAtoi
     {
         
 

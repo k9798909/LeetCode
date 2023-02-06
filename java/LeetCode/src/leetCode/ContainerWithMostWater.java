@@ -44,7 +44,7 @@ public class ContainerWithMostWater {
 				r = t;
 			}
 			
-			//留下大的一方
+			//比較完大小留下大的一方，因為比較面積不需要看小的一放，慢慢縮小
 			if (height[i] >= height[j]) {
 				j--;
 			} else {

@@ -1,6 +1,7 @@
-package leetCode;
+package leetcode;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -24,10 +25,8 @@ public class LetterCombinationsOfAPhoneNumber {
 		for (char c : digits.toCharArray()) {
 			//找出符合的字串陣列，第一次的話直接加進list不走下面的遞加
 			String[] array = map.get(c);
-			if (list.size() == 0) {
-				for (String s : array) {
-					list.add(s);
-				}
+			if (list.isEmpty()) {
+				list.addAll(Arrays.asList(array));
 				continue;
 			}
 			

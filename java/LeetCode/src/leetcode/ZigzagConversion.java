@@ -1,7 +1,5 @@
 package leetcode;
 
-import java.util.Iterator;
-
 public class ZigzagConversion {
 
 	public static String convert(String s, int numRows) {

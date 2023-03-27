@@ -7,7 +7,8 @@ import java.util.Map;
 
 public class ReorderRoutestoMakeAll_1466 {
 	int cnt = 0;
-
+	
+	//深度優先搜尋（DFS）
 	public void dfs(Map<Integer, List<Node>> map, boolean[] isVisit, int node) {
 		isVisit[node] = true;
 		if (!map.containsKey(node)) {

@@ -1,6 +1,6 @@
 package leetcode;
 
-public class MinimumPathSum {
+public class MinimumPathSum_64 {
 	// DP（動態規劃，Dynamic Programming）動態規劃演算法的核心思想是記錄中間結果，以避免重複計算
 	public int minPathSum(int[][] grid) {
 		int xLen = grid[0].length;

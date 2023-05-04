@@ -7,6 +7,8 @@ mod maximum_subarray_53;
 mod merge_sorted_array_88;
 mod kids_with_candies_1431;
 mod merge_strings_alternately_1768;
+mod array_sign1822;
+mod search_a_2D_matrix74;
 
 
 fn main() {

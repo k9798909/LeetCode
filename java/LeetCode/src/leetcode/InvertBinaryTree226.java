@@ -24,21 +24,21 @@ public class InvertBinaryTree226 {
 		if (root == null) {
 			return root;
 		}
-		
-		invert(root.left, root.right);
+		swap(root);
 		return root;
 	}
 
-	public void invert(TreeNode left, TreeNode right) {
-		if (left == null || right == null) {
-			return;
+	public void swap(TreeNode node) {
+		TreeNode temp = node.right;
+		node.right = node.left;
+		node.left = temp;
+
+		if (node.right != null) {
+			swap(node.right);
 		}
-		
-		invert(left.left,right.right);
-		invert(right.left,left.right);
-		
-		int tempVal = left.val;
-		left.val = right.val;
-		right.val = tempVal;
+
+		if (node.left != null) {
+			swap(node.left);
+		}
 	}
 }

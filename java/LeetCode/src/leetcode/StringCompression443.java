@@ -59,7 +59,7 @@ public class StringCompression443 {
             }
         }
 
-        return resultIdx++;
+        return resultIdx;
     }
 
     public static void main(String[] args) {

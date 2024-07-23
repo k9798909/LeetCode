@@ -3,15 +3,15 @@ package leetcode;
 import java.util.HashSet;
 import java.util.Set;
 
+/**
+ * Given a string s, reverse only all the vowels in the string and return it.
+ *
+ * The vowels are 'a', 'e', 'i', 'o', and 'u', and they can appear in both lower
+ * and upper cases, more than once.
+ * 
+ */
 public class ReverseVowelsOfAString345 {
 
-    /**
-     * Given a string s, reverse only all the vowels in the string and return it.
-     *
-     * The vowels are 'a', 'e', 'i', 'o', and 'u', and they can appear in both lower and upper cases, more than once.
-     * @param s
-     * @return
-     */
     public String reverseVowels(String s) {
         Set<Character> vowels = new HashSet<>();
         vowels.add('a');

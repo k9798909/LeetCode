@@ -1,8 +1,5 @@
 package leetcode;
 
-import java.util.HashSet;
-import java.util.Set;
-
 public class RemoveDuplicatesFromSortedList83 {
 	public class ListNode {
 		int val;
@@ -21,11 +18,11 @@ public class RemoveDuplicatesFromSortedList83 {
 		}
 	}
 
-    public ListNode deleteDuplicates(ListNode head) {
+	public ListNode deleteDuplicates(ListNode head) {
 		if (head == null) {
 			return head;
 		}
-		
+
 		ListNode node = head;
 		ListNode nextNode = head.next;
 		int val = node.val;
@@ -40,5 +37,5 @@ public class RemoveDuplicatesFromSortedList83 {
 		}
 
 		return head;
-    }
+	}
 }

@@ -2,23 +2,25 @@ package leetcode;
 
 import java.util.*;
 
+/**
+ * Two strings are considered close if you can attain one from the other using
+ * the following operations:
+ * <p>
+ * Operation 1: Swap any two existing characters.
+ * For example, abcde -> aecdb
+ * Operation 2: Transform every occurrence of one existing character into
+ * another existing character,
+ * and do the same with the other character.
+ * For example, aacabb -> bbcbaa (all a's turn into b's, and all b's turn into
+ * a's)
+ * You can use the operations on either string as many times as necessary.
+ * <p>
+ * Given two strings, word1 and word2, return true if word1 and word2 are close,
+ * and false otherwise.
+ *
+ */
 public class DetermineIfTwoStringsAreClose1657 {
-    /**
-     * Two strings are considered close if you can attain one from the other using the following operations:
-     * <p>
-     * Operation 1: Swap any two existing characters.
-     * For example, abcde -> aecdb
-     * Operation 2: Transform every occurrence of one existing character into another existing character,
-     * and do the same with the other character.
-     * For example, aacabb -> bbcbaa (all a's turn into b's, and all b's turn into a's)
-     * You can use the operations on either string as many times as necessary.
-     * <p>
-     * Given two strings, word1 and word2, return true if word1 and word2 are close, and false otherwise.
-     *
-     * @param word1
-     * @param word2
-     * @return
-     */
+
     public boolean closeStrings(String word1, String word2) {
         char[] charArray1 = word1.toCharArray();
         char[] charArray2 = word2.toCharArray();

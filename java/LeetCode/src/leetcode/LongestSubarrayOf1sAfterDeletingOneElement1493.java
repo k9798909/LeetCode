@@ -1,8 +1,5 @@
 package leetcode;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class LongestSubarrayOf1sAfterDeletingOneElement1493 {
     public int longestSubarray(int[] nums) {
         int maxCnt = 0;

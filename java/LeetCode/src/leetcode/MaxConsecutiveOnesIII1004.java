@@ -1,15 +1,13 @@
 package leetcode;
 
+/**
+ * Given a binary array nums and an integer k,
+ * return the maximum number of consecutive 1's in the array if you can flip at
+ * most k 0's.
+ *
+ */
 public class MaxConsecutiveOnesIII1004 {
 
-    /**
-     * Given a binary array nums and an integer k,
-     * return the maximum number of consecutive 1's in the array if you can flip at most k 0's.
-     *
-     * @param nums
-     * @param k
-     * @return
-     */
     public int longestOnes(int[] nums, int k) {
         // [0,0,1,1,0,0,1,1,1,0,1,1,0,0,0,1,1,1,1]
         int maxCnt = 0;

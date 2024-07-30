@@ -1,6 +1,5 @@
 package leetcode;
 
-import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.Queue;
 
@@ -24,7 +23,7 @@ public class MaximumWidthOfBinaryTree662 {
 			this.right = right;
 		}
 	}
-	
+
 	public class MyTreeNode {
 		int index;
 		int level;
@@ -36,12 +35,21 @@ public class MaximumWidthOfBinaryTree662 {
 			this.treeNode = treeNode;
 		}
 	}
-	
+
 	/**
-	 * <p>用bfs一層一層去找</p>
-	 * <p>index 算法 左:node * 2  右:node * 2 + 1</p>
-	 * <p>用nowLevel及node的nodeLevel是否換層了</p>
-	 * <p>距離是end - start + 1</p> 
+	 * <p>
+	 * 用bfs一層一層去找
+	 * </p>
+	 * <p>
+	 * index 算法 左:node * 2 右:node * 2 + 1
+	 * </p>
+	 * <p>
+	 * 用nowLevel及node的nodeLevel是否換層了
+	 * </p>
+	 * <p>
+	 * 距離是end - start + 1
+	 * </p>
+	 * 
 	 * @param root
 	 * @return
 	 */
@@ -60,7 +68,7 @@ public class MaximumWidthOfBinaryTree662 {
 				end = 0;
 				nowLevel = node.level;
 			}
-			
+
 			if (node.treeNode.left != null) {
 				queue.add(new MyTreeNode(node.index * 2, node.level + 1, node.treeNode.left));
 
@@ -80,13 +88,10 @@ public class MaximumWidthOfBinaryTree662 {
 
 				end = node.index * 2 + 1;
 			}
-			
+
 		}
-		
+
 		return maxLength;
 	}
 
-
-
-	
 }

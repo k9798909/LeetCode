@@ -2,9 +2,6 @@ package leetcode;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.CopyOnWriteArraySet;
-import java.util.concurrent.ForkJoinPool;
-import java.util.concurrent.TimeUnit;
 
 public class ReorderList143 {
 	public class ListNode {
@@ -54,29 +51,4 @@ public class ReorderList143 {
 		}
 
 	}
-
-	public static void main(String[] args) throws InterruptedException {
-		List<Integer> list = new ArrayList<>();
-		for (int i = 0; i < 10; i++) {
-			list.add(i);
-		}
-		CopyOnWriteArraySet<String> set = new CopyOnWriteArraySet<>();
-		ForkJoinPool customThreadPool = new ForkJoinPool(10);
-		customThreadPool.execute(() ->
-				list.parallelStream().forEach(t -> {
-					set.add(Thread.currentThread().getName());
-					for (int i = 0; i < 10000000; i++) {
-					}
-					System.out.println(t);
-				})
-		);
-		customThreadPool.shutdown();
-		if (!customThreadPool.awaitTermination(1, TimeUnit.SECONDS)) {
-			throw new RuntimeException("執行緒超時");
-		}
-		for (String name : set) {
-			System.out.println(name);
-		}
-	}
-
 }

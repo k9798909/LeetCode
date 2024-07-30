@@ -1,16 +1,14 @@
 package leetcode;
 
-import java.util.Arrays;
-
+/**
+ * Given an integer array nums, return true if there exists a triple of indices
+ * (i, j, k)
+ * such that i < j < k and nums[i] < nums[j] < nums[k]. If no such
+ * indices exists, return false.
+ *
+ */
 public class IncreasingTripletSubsequence334 {
-    /**
-     * Given an integer array nums, return true if there exists a triple of indices (i, j, k)
-     * such that i < j < k and nums[i] < nums[j] < nums[k]. If no such
-     * indices exists, return false.
-     *
-     * @param nums
-     * @return
-     */
+
     public boolean increasingTriplet(int[] nums) {
         int a = Integer.MAX_VALUE; // 初始化第一個最小值為整數的最大值
         int b = Integer.MAX_VALUE; // 初始化第二個最小值為整數的最大值
@@ -30,6 +28,7 @@ public class IncreasingTripletSubsequence334 {
     }
 
     public static void main(String[] args) {
-        System.out.println(new IncreasingTripletSubsequence334().increasingTriplet(new int[] {20,100,10,12,5,13}));
+        System.out
+                .println(new IncreasingTripletSubsequence334().increasingTriplet(new int[] { 20, 100, 10, 12, 5, 13 }));
     }
 }

@@ -1,18 +1,17 @@
 package leetcode;
 
-import java.util.HashSet;
-import java.util.Set;
-
+/**
+ * Given a string s and an integer k, return the maximum number of vowel letters
+ * in any substring of s with length k.
+ * <p>
+ * Vowel letters in English are 'a', 'e', 'i', 'o', and 'u'.
+ *
+ * @param s
+ * @param k
+ * @return
+ */
 public class MaximumNumberOfVowelsInASubstringOfGivenLength1456 {
-    /**
-     * Given a string s and an integer k, return the maximum number of vowel letters in any substring of s with length k.
-     * <p>
-     * Vowel letters in English are 'a', 'e', 'i', 'o', and 'u'.
-     *
-     * @param s
-     * @param k
-     * @return
-     */
+
     public int maxVowels(String s, int k) {
         int[] isVowels = new int[123];
         isVowels['a'] = 1;

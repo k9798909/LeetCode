@@ -1,9 +1,13 @@
 package leetcode;
 
+/**
+ * Given a binary tree root, a node X in the tree is named good if in the path
+ * from root to X there are no nodes with a value greater than X.
+ * <p>
+ * Return the number of good nodes in the binary tree.
+ *
+ */
 public class CountGoodNodesInBinaryTree1448 {
-    Definition for
-    a binary
-    tree node.
 
     public class TreeNode {
         int val;
@@ -26,14 +30,6 @@ public class CountGoodNodesInBinaryTree1448 {
 
     int cnt = 0;
 
-    /**
-     * Given a binary tree root, a node X in the tree is named good if in the path from root to X there are no nodes with a value greater than X.
-     * <p>
-     * Return the number of good nodes in the binary tree.
-     *
-     * @param root
-     * @return
-     */
     public int goodNodes(TreeNode root) {
         dps(root, root.val);
         return cnt;

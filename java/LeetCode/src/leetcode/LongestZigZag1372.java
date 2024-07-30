@@ -1,5 +1,20 @@
 package leetcode;
 
+/**
+ * You are given the root of a binary tree.
+ * 
+ * A ZigZag path for a binary tree is defined as follow:
+ * 
+ * Choose any node in the binary tree and a direction (right or left).
+ * If the current direction is right, move to the right child of the current
+ * node; otherwise, move to the left child.
+ * Change the direction from right to left or from left to right.
+ * Repeat the second and third steps until you can't move in the tree.
+ * Zigzag length is defined as the number of nodes visited - 1. (A single node
+ * has a length of 0).
+ * 
+ * Return the longest ZigZag path contained in that tree.
+ */
 public class LongestZigZag1372 {
 	public class TreeNode {
 		int val;
@@ -20,31 +35,30 @@ public class LongestZigZag1372 {
 		}
 	}
 
-	public int rtn = 0;
-	
-	//深度優先，root進入左右邊，如果進入左邊時代表下一個進入右邊時，cnt加1，而進入左邊時步數需重新計算，如果下一個節點是null代表已經走完，而cnt代表此ZigZag最大值
+	int maxCnt = 0;
+
 	public int longestZigZag(TreeNode root) {
-		dps(root, false, 0);
-		dps(root, true, 0);
-		return rtn;
+		maxZigZag(root.left, true, 0);
+		maxZigZag(root.right, false, 0);
+		return maxCnt;
 	}
 
-	public void dps(TreeNode root,boolean isRight,int cnt) {
-		if (root == null) {
+	public void maxZigZag(TreeNode node, boolean isLeft, int cnt) {
+		if (node == null) {
+			if (cnt > maxCnt) {
+				maxCnt = cnt;
+			}
 			return;
 		}
-		
-		if (cnt >= rtn) {
-			rtn = cnt;
-		}
-		
-		if (isRight) {
-			dps(root.left, false, cnt + 1);
-			dps(root.right, true, 1);
+
+		if (isLeft) {
+			maxZigZag(node.left, true, 0);
+			maxZigZag(node.right, false, cnt + 1);
 		} else {
-			dps(root.left, false, 1);
-			dps(root.right, true, cnt + 1);
+			maxZigZag(node.right, false, 0);
+			maxZigZag(node.left, true, cnt + 1);
 		}
+
 	}
 
 }

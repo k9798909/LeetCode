@@ -1,9 +1,5 @@
 package leetcode;
 
-import java.util.concurrent.CompletableFuture;
-import java.util.concurrent.ExecutionException;
-import java.util.stream.Collectors;
-
 public class MaximumDepthOfBinaryTree104 {
     public class TreeNode {
         int val;
@@ -31,6 +27,5 @@ public class MaximumDepthOfBinaryTree104 {
 
         return Math.max(maxDepth(root.left) + 1, maxDepth(root.right) + 1);
     }
-
 
 }

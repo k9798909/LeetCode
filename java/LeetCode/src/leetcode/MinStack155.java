@@ -6,8 +6,6 @@ public class MinStack155 {
 
 	public MinStack155() {
 		this.intAry = new int[0];
-//		this.intAry = new int[0];
-//		intAry = new int[]{};
 	}
 
 	public void push(int val) {

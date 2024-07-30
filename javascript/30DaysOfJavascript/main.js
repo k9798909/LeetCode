@@ -3,9 +3,9 @@
  * @return {Function}
  */
 var createHelloWorld = function () {
-    return function (...args) {
-        return "Hello World";
-    }
+  return function (...args) {
+    return "Hello World";
+  };
 };
 
 /**
@@ -14,10 +14,10 @@ var createHelloWorld = function () {
  * @return {Function} counter
  */
 var createCounter = function (n) {
-    let count = n;
-    return function () {
-        return count++;
-    };
+  let count = n;
+  return function () {
+    return count++;
+  };
 };
 
 /**
@@ -26,21 +26,21 @@ var createCounter = function (n) {
  * @return {Object}
  */
 var expect = function (val) {
-    return {
-        toBe: function (arg) {
-            if (val === arg) {
-                return true;
-            }
-            throw "Not Equal";
-        },
+  return {
+    toBe: function (arg) {
+      if (val === arg) {
+        return true;
+      }
+      throw "Not Equal";
+    },
 
-        notToBe: function (arg) {
-            if (val !== arg) {
-                return true;
-            }
-            throw "Equal";
-        }
-    }
+    notToBe: function (arg) {
+      if (val !== arg) {
+        return true;
+      }
+      throw "Equal";
+    },
+  };
 };
 
 /**
@@ -49,20 +49,20 @@ var expect = function (val) {
  * @return { increment: Function, decrement: Function, reset: Function }
  */
 var createCounter2 = function (init) {
-    let initCount = init;
-    let count = init;
-    return {
-        increment: function () {
-            return ++count;
-        },
-        decrement: function () {
-            return --count;
-        },
-        reset: function () {
-            count = initCount;
-            return count;
-        },
-    }
+  let initCount = init;
+  let count = init;
+  return {
+    increment: function () {
+      return ++count;
+    },
+    decrement: function () {
+      return --count;
+    },
+    reset: function () {
+      count = initCount;
+      return count;
+    },
+  };
 };
 
 /**
@@ -72,11 +72,11 @@ var createCounter2 = function (init) {
  * @return {number[]}
  */
 var map = function (arr, fn) {
-    let newArray = [];
-    for (let i = 0; i < arr.length; i++) {
-        newArray.push(fn(arr[i], i));
-    }
-    return newArray;
+  let newArray = [];
+  for (let i = 0; i < arr.length; i++) {
+    newArray.push(fn(arr[i], i));
+  }
+  return newArray;
 };
 
 /**
@@ -86,13 +86,13 @@ var map = function (arr, fn) {
  * @return {number[]}
  */
 var filter = function (arr, fn) {
-    let newArray = [];
-    arr.forEach((num, i) => {
-        if (fn(num, i)) {
-            newArray.push(num);
-        }
-    })
-    return newArray;
+  let newArray = [];
+  arr.forEach((num, i) => {
+    if (fn(num, i)) {
+      newArray.push(num);
+    }
+  });
+  return newArray;
 };
 
 /**
@@ -103,10 +103,10 @@ var filter = function (arr, fn) {
  * @return {number}
  */
 var reduce = function (nums, fn, init) {
-    nums.forEach((num) => {
-        init = fn(init, num)
-    })
-    return init;
+  nums.forEach((num) => {
+    init = fn(init, num);
+  });
+  return init;
 };
 
 /**
@@ -115,13 +115,12 @@ var reduce = function (nums, fn, init) {
  * @return {Function}
  */
 var compose = function (functions) {
-
-    return function (x) {
-        functions.reverse().forEach(fn => {
-            x = fn(x);
-        })
-        return x;
-    }
+  return function (x) {
+    functions.reverse().forEach((fn) => {
+      x = fn(x);
+    });
+    return x;
+  };
 };
 
 /**
@@ -130,7 +129,7 @@ var compose = function (functions) {
  * @return {number}
  */
 var argumentsLength = function (...args) {
-    return args.length;
+  return args.length;
 };
 
 /**
@@ -139,15 +138,15 @@ var argumentsLength = function (...args) {
  * @return {Function}
  */
 var once = function (fn) {
-    let doFn = fn;
-    return function (...args) {
-        if (doFn) {
-            let result = doFn(...args);
-            doFn = undefined
-            return result;
-        }
-        return doFn;
+  let doFn = fn;
+  return function (...args) {
+    if (doFn) {
+      let result = doFn(...args);
+      doFn = undefined;
+      return result;
     }
+    return doFn;
+  };
 };
 
 /**
@@ -156,17 +155,17 @@ var once = function (fn) {
  * @return {Function}
  */
 function memoize(fn) {
-    let cache = new Map()
-    return function (...args) {
-        let key = args.toString();
-        if (cache.has(key)) {
-            return cache.get(key);
-        } else {
-            let result = fn(...args);
-            cache.set(key, result);
-            return result;
-        }
+  let cache = new Map();
+  return function (...args) {
+    let key = args.toString();
+    if (cache.has(key)) {
+      return cache.get(key);
+    } else {
+      let result = fn(...args);
+      cache.set(key, result);
+      return result;
     }
+  };
 }
 
 /**
@@ -176,11 +175,10 @@ function memoize(fn) {
  * @return {Promise}
  */
 var addTwoPromises = async function (promise1, promise2) {
-    let num1 = await promise1;
-    let num2 = await promise2;
-    return num1 + num2;
+  let num1 = await promise1;
+  let num2 = await promise2;
+  return num1 + num2;
 };
-
 
 /**
  * 2621. Sleep
@@ -188,9 +186,9 @@ var addTwoPromises = async function (promise1, promise2) {
  * @return {Promise}
  */
 async function sleep(millis) {
-    return new Promise((resolve, _) => {
-        setTimeout(() => resolve(millis), millis)
-    })
+  return new Promise((resolve, _) => {
+    setTimeout(() => resolve(millis), millis);
+  });
 }
 
 /**
@@ -201,10 +199,10 @@ async function sleep(millis) {
  * @return {Function}
  */
 var cancellable = function (fn, args, t) {
-    let timeout = setTimeout(fn, t, ...args)
-    return () => {
-        clearTimeout(timeout);
-    }
+  let timeout = setTimeout(fn, t, ...args);
+  return () => {
+    clearTimeout(timeout);
+  };
 };
 
 /**
@@ -215,11 +213,11 @@ var cancellable = function (fn, args, t) {
  * @return {Function}
  */
 var cancellable = function (fn, args, t) {
-    fn(...args);
-    let interval = setInterval(fn, t, ...args)
-    return () => {
-        clearInterval(interval);
-    }
+  fn(...args);
+  let interval = setInterval(fn, t, ...args);
+  return () => {
+    clearInterval(interval);
+  };
 };
 
 /**
@@ -229,69 +227,68 @@ var cancellable = function (fn, args, t) {
  * @return {Function}
  */
 var timeLimit = function (fn, t) {
-    return async function (...args) {
-        let timeout = new Promise((_, reject) => {
-            setTimeout(() => reject("Time Limit Exceeded"), t)
-        })
+  return async function (...args) {
+    let timeout = new Promise((_, reject) => {
+      setTimeout(() => reject("Time Limit Exceeded"), t);
+    });
 
-        let result = new Promise((resolve, _) => {
-            resolve(fn(...args))
-        })
-        return Promise.race([result, timeout])
-    }
+    let result = new Promise((resolve, _) => {
+      resolve(fn(...args));
+    });
+    return Promise.race([result, timeout]);
+  };
 };
-
 
 /**
  * 2622. Cache With Time Limit
  */
 class TimeLimitedCache {
-    constructor() {
-        this.storeMap = new Map();
-        this.timeoutMap = new Map();
+  constructor() {
+    this.storeMap = new Map();
+    this.timeoutMap = new Map();
+  }
+
+  /**
+   * @param {number} key
+   * @param {number} value
+   * @param {number} duration time until expiration in ms
+   * @return {boolean} if un-expired key already existed
+   */
+  set = function (key, value, duration) {
+    let notExist = this.storeMap.has(key);
+
+    if (this.timeoutMap.has(key)) {
+      clearTimeout(this.timeoutMap.get(key));
     }
 
-    /** 
-    * @param {number} key
-    * @param {number} value
-    * @param {number} duration time until expiration in ms
-    * @return {boolean} if un-expired key already existed
-    */
-    set = function (key, value, duration) {
-        let notExist = this.storeMap.has(key)
+    this.storeMap.set(key, value);
 
-        if (this.timeoutMap.has(key)) {
-            clearTimeout(this.timeoutMap.get(key))
-        }
+    let timeoutId = setTimeout(() => {
+      this.storeMap.delete(key);
+    }, duration);
 
-        this.storeMap.set(key, value)
+    this.timeoutMap.set(key, timeoutId);
 
-        let timeoutId = setTimeout(() => {
-            this.storeMap.delete(key);
-        }, duration)
+    return notExist;
+  };
 
-        this.timeoutMap.set(key, timeoutId)
+  /**
+   * @param {number} key
+   * @return {number} value associated with key
+   */
+  get = function (key) {
+    if (this.storeMap.has(key)) {
+      return this.storeMap.get(key);
+    }
+    return -1;
+  };
 
-        return notExist;
-    };
-
-    /** 
-     * @param {number} key
-     * @return {number} value associated with key
-     */
-    get = function (key) {
-        if (this.storeMap.has(key)) {
-            return this.storeMap.get(key);
-        }
-        return -1;
-    };
-
-    /** 
-     * @return {number} count of non-expired keys
-     */
-    count = function () {
-        return this.storeMap.size
-    };
+  /**
+   * @return {number} count of non-expired keys
+   */
+  count = function () {
+    return this.storeMap.size;
+  };
 }
 
 /**
@@ -301,13 +298,13 @@ class TimeLimitedCache {
  * @return {Function}
  */
 var debounce = function (fn, t) {
-    let timeoutId;
-    return function (...args) {
-        if (timeoutId) {
-            clearTimeout(timeoutId);
-        }
-        timeoutId = setTimeout(fn, t, ...args)
+  let timeoutId;
+  return function (...args) {
+    if (timeoutId) {
+      clearTimeout(timeoutId);
     }
+    timeoutId = setTimeout(fn, t, ...args);
+  };
 };
 
 /**
@@ -316,24 +313,25 @@ var debounce = function (fn, t) {
  * @return {Promise<any>}
  */
 var promiseAll = function (functions) {
-    return new Promise((resolve, reject) => {
-        let resultArray = [];
-        let cnt = 0;
-        functions.forEach((fn, index) => {
-            fn().then(result => {
-                resultArray[index] = result;
-                cnt++;
+  return new Promise((resolve, reject) => {
+    let resultArray = [];
+    let cnt = 0;
+    functions.forEach((fn, index) => {
+      fn()
+        .then((result) => {
+          resultArray[index] = result;
+          cnt++;
 
-                if (cnt == functions.length) {
-                    resolve(resultArray);
-                }
-            }).catch(e => {
-                reject(e);
-            })
+          if (cnt == functions.length) {
+            resolve(resultArray);
+          }
         })
-    })
+        .catch((e) => {
+          reject(e);
+        });
+    });
+  });
 };
-
 
 /**
  * 2727. Is Object Empty
@@ -341,10 +339,10 @@ var promiseAll = function (functions) {
  * @return {boolean}
  */
 var isEmpty = function (obj) {
-    if (!obj) {
-        return true;
-    }
-    return Object.keys(obj).length === 0;
+  if (!obj) {
+    return true;
+  }
+  return Object.keys(obj).length === 0;
 };
 
 /**
@@ -354,11 +352,11 @@ var isEmpty = function (obj) {
  * @return {Array}
  */
 var chunk = function (arr, size) {
-    let chunkArray = [];
-    for (let i = 0; i < arr.length; i += size) {
-        chunkArray.push(arr.slice(i, i + size));
-    }
-    return chunkArray;
+  let chunkArray = [];
+  for (let i = 0; i < arr.length; i += size) {
+    chunkArray.push(arr.slice(i, i + size));
+  }
+  return chunkArray;
 };
 
 /**
@@ -366,10 +364,10 @@ var chunk = function (arr, size) {
  * @return {null|boolean|number|string|Array|Object}
  */
 Array.prototype.last = function () {
-    if (this.length === 0) {
-        return -1;
-    }
-    return this[this.length - 1]
+  if (this.length === 0) {
+    return -1;
+  }
+  return this[this.length - 1];
 };
 
 /**
@@ -378,19 +376,18 @@ Array.prototype.last = function () {
  * @return {Object}
  */
 Array.prototype.groupBy = function (fn) {
-    let obj = {};
-    this.forEach(t => {
-        let key = fn(t);
-        if (obj[key]) {
-            obj[key].push(t);
-        } else {
-            obj[key] = [t];
-        }
-    })
+  let obj = {};
+  this.forEach((t) => {
+    let key = fn(t);
+    if (obj[key]) {
+      obj[key].push(t);
+    } else {
+      obj[key] = [t];
+    }
+  });
 
-    return obj;
+  return obj;
 };
-
 
 /**
  * 2724. Sort By
@@ -399,7 +396,7 @@ Array.prototype.groupBy = function (fn) {
  * @return {Array}
  */
 var sortBy = function (arr, fn) {
-    return arr.sort((a, b) => fn(a) - fn(b));
+  return arr.sort((a, b) => fn(a) - fn(b));
 };
 
 /**
@@ -409,17 +406,17 @@ var sortBy = function (arr, fn) {
  * @return {Array}
  */
 var join = function (arr1, arr2) {
-    let join = [];
-    arr1.push(...arr2);
-    arr1.forEach(t => {
-        const idx = t.id;
-        if (!!join[idx]) {
-            join[idx] = Object.assign(join[idx], t);
-        } else {
-            join[idx] = t;
-        }
-    })
-    return join.filter(t => !!t);
+  let join = [];
+  arr1.push(...arr2);
+  arr1.forEach((t) => {
+    const idx = t.id;
+    if (!!join[idx]) {
+      join[idx] = Object.assign(join[idx], t);
+    } else {
+      join[idx] = t;
+    }
+  });
+  return join.filter((t) => !!t);
 };
 
 /**
@@ -429,19 +426,19 @@ var join = function (arr1, arr2) {
  * @return {Array}
  */
 var flat = function (arr, n) {
-    const flatArray = [];
-    const flatFn = (arr, n) => arr.forEach(t => {
-        if (Array.isArray(t) && n > 0) {
-            flatFn(t, n - 1);
-        } else {
-            flatArray.push(t);
-        }
-    })
+  const flatArray = [];
+  const flatFn = (arr, n) =>
+    arr.forEach((t) => {
+      if (Array.isArray(t) && n > 0) {
+        flatFn(t, n - 1);
+      } else {
+        flatArray.push(t);
+      }
+    });
 
-    flatFn(arr, n);
-    return flatArray;
+  flatFn(arr, n);
+  return flatArray;
 };
-
 
 /**
  * 2705. Compact Object
@@ -449,157 +446,154 @@ var flat = function (arr, n) {
  * @return {Object|Array}
  */
 var compactObject = function (obj) {
-    if (Array.isArray(obj)) {
-        obj = obj.filter(t => Boolean(t));
-    }
+  if (Array.isArray(obj)) {
+    obj = obj.filter((t) => Boolean(t));
+  }
 
-    Object.keys(obj).forEach(key => {
-        if (!Boolean(obj[key])) {
-            delete obj[key];
-        } else if (Array.isArray(obj[key]) || typeof obj[key] === 'object') {
-            obj[key] = compactObject(obj[key]);
-        }
-    })
-    return obj;
+  Object.keys(obj).forEach((key) => {
+    if (!Boolean(obj[key])) {
+      delete obj[key];
+    } else if (Array.isArray(obj[key]) || typeof obj[key] === "object") {
+      obj[key] = compactObject(obj[key]);
+    }
+  });
+  return obj;
 };
 
 /**
  * 2694. Event Emitter
  */
 class EventEmitter {
-    constructor() {
-        this.eventList = {};
-    }
+  constructor() {
+    this.eventList = {};
+  }
 
-    /**
-     * @param {string} eventName
-     * @param {Function} callback
-     * @return {Object}
-     */
-    subscribe(eventName, callback) {
-        if (!this.eventList[eventName]) {
-            this.eventList[eventName] = [];
+  /**
+   * @param {string} eventName
+   * @param {Function} callback
+   * @return {Object}
+   */
+  subscribe(eventName, callback) {
+    if (!this.eventList[eventName]) {
+      this.eventList[eventName] = [];
+    }
+    const key = this.eventList[eventName].length;
+    this.eventList[eventName][key] = callback;
+
+    return {
+      unsubscribe: () => {
+        this.eventList[eventName][key] = null;
+        if (this.eventList[eventName].filter((t) => Boolean(t)).length == 0) {
+          delete this.eventList[eventName];
         }
-        const key = this.eventList[eventName].length;
-        this.eventList[eventName][key] = callback;
+      },
+    };
+  }
 
-        return {
-            unsubscribe: () => {
-                this.eventList[eventName][key] = null
-                if (this.eventList[eventName].filter(t => Boolean(t)).length == 0) {
-                    delete this.eventList[eventName];
-                }
-            }
-        };
+  /**
+   * @param {string} eventName
+   * @param {Array} args
+   * @return {Array}
+   */
+  emit(eventName, args = []) {
+    const fns = this.eventList[eventName];
+    if (fns) {
+      return fns.filter((t) => Boolean(t)).map((fn) => fn(...args));
+    } else {
+      return [];
     }
-
-    /**
-     * @param {string} eventName
-     * @param {Array} args
-     * @return {Array}
-     */
-    emit(eventName, args = []) {
-        const fns = this.eventList[eventName];
-        if (fns) {
-            return fns.filter(t => Boolean(t)).map(fn => fn(...args));
-        } else {
-            return [];
-        }
-    }
+  }
 }
 
 {
-    /**
-     * 2695. Array Wrapper
-     * @param {number[]} nums
-     * @return {void}
-     */
-    var ArrayWrapper = function (nums) {
-        this.nums = nums;
-    };
+  /**
+   * 2695. Array Wrapper
+   * @param {number[]} nums
+   * @return {void}
+   */
+  var ArrayWrapper = function (nums) {
+    this.nums = nums;
+  };
 
-    /**
-     * @return {number}
-     */
-    ArrayWrapper.prototype.valueOf = function () {
-        return this.nums.reduce((num1, nym2) => num1 + nym2, 0);
-    }
+  /**
+   * @return {number}
+   */
+  ArrayWrapper.prototype.valueOf = function () {
+    return this.nums.reduce((num1, nym2) => num1 + nym2, 0);
+  };
 
-    /**
-     * @return {string}
-     */
-    ArrayWrapper.prototype.toString = function () {
-        return "[" + this.nums.join(",") + "]";
-    }
-
+  /**
+   * @return {string}
+   */
+  ArrayWrapper.prototype.toString = function () {
+    return "[" + this.nums.join(",") + "]";
+  };
 }
 
 /**
  * 2726. Calculator with Method Chaining
  */
 class Calculator {
+  /**
+   * @param {number} value
+   */
+  constructor(value) {
+    this.value = value;
+  }
 
-    /** 
-     * @param {number} value
-     */
-    constructor(value) {
-        this.value = value;
+  /**
+   * @param {number} value
+   * @return {Calculator}
+   */
+  add(value) {
+    this.value += value;
+    return this;
+  }
+
+  /**
+   * @param {number} value
+   * @return {Calculator}
+   */
+  subtract(value) {
+    this.value -= value;
+    return this;
+  }
+
+  /**
+   * @param {number} value
+   * @return {Calculator}
+   */
+  multiply(value) {
+    this.value *= value;
+    return this;
+  }
+
+  /**
+   * @param {number} value
+   * @return {Calculator}
+   */
+  divide(value) {
+    if (value == 0) {
+      throw "Division by zero is not allowed";
     }
 
-    /** 
-     * @param {number} value
-     * @return {Calculator}
-     */
-    add(value) {
-        this.value += value;
-        return this;
-    }
+    this.value /= value;
+    return this;
+  }
 
-    /** 
-     * @param {number} value
-     * @return {Calculator}
-     */
-    subtract(value) {
-        this.value -= value;
-        return this;
-    }
+  /**
+   * @param {number} value
+   * @return {Calculator}
+   */
+  power(value) {
+    this.value = Math.pow(this.value, value);
+    return this;
+  }
 
-    /** 
-     * @param {number} value
-     * @return {Calculator}
-     */
-    multiply(value) {
-        this.value *= value;
-        return this;
-    }
-
-    /** 
-     * @param {number} value
-     * @return {Calculator}
-     */
-    divide(value) {
-        if (value == 0) {
-            throw "Division by zero is not allowed"
-        }
-
-        this.value /= value;
-        return this;
-    }
-
-    /** 
-     * @param {number} value
-     * @return {Calculator}
-     */
-    power(value) {
-        this.value = Math.pow(this.value,value);
-        return this;
-    }
-
-    /** 
-     * @return {number}
-     */
-    getResult() {
-        return this.value;
-    }
+  /**
+   * @return {number}
+   */
+  getResult() {
+    return this.value;
+  }
 }
-

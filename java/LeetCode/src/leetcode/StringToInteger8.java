@@ -1,3 +1,5 @@
+package leetcode;
+
 public class StringToInteger8 {
     public int myAtoi(String s) {
         s = s.trim();

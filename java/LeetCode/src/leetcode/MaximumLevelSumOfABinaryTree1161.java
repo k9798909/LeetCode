@@ -4,59 +4,57 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 public class MaximumLevelSumOfABinaryTree1161 {
-	public int maxLevelSum(TreeNode root) {
-		if (root == null) {
-			return 0;
-		}
+    public int maxLevelSum(TreeNode root) {
+        if (root == null) {
+            return 0;
+        }
 
-		Queue<TreeNode> queue = new LinkedList<>();
-		queue.add(root);
+        Queue<TreeNode> level = new LinkedList<>();
+        level.add(root);
+        int maxLevel = 0, maxSum = Integer.MIN_VALUE, curLevel = 1;
 
-		int maxSum = Integer.MIN_VALUE;
-		int maxLevel = 0;
-		int level = 1;
-		while (!queue.isEmpty()) {
-			int size = queue.size();
+        while (!level.isEmpty()) {
+            int sum = 0;
+            int levelSize = level.size();
+            for (int i = 0; i < levelSize; i++) {
+                TreeNode node = level.poll();
+                sum += node.val;
+                if (node.left != null) {
+                    level.add(node.left);
+                }
 
-			int sum = 0;
-			for (int i = 0; i < size; i++) {
-				TreeNode temp = queue.poll();
-				sum += temp.val;
-				if (temp.left != null) {
-					queue.add(temp.left);
-				}
+                if (node.right != null) {
+                    level.add(node.right);
+                }
+            }
 
-				if (temp.right != null) {
-					queue.add(temp.right);
-				}
-			}
+            if (maxSum < sum) {
+                maxSum = sum;
+                maxLevel = curLevel;
+            }
 
-			if (sum > maxSum) {
-				maxSum = sum;
-				maxLevel = level;
-			}
+            curLevel++;
+        }
 
-			level++;
-		}
-		return maxLevel;
-	}
+        return maxLevel;
+    }
 
-	public class TreeNode {
-		int val;
-		TreeNode left;
-		TreeNode right;
+    public static class TreeNode {
+        int val;
+        TreeNode left;
+        TreeNode right;
 
-		TreeNode() {
-		}
+        TreeNode() {
+        }
 
-		TreeNode(int val) {
-			this.val = val;
-		}
+        TreeNode(int val) {
+            this.val = val;
+        }
 
-		TreeNode(int val, TreeNode left, TreeNode right) {
-			this.val = val;
-			this.left = left;
-			this.right = right;
-		}
-	}
+        TreeNode(int val, TreeNode left, TreeNode right) {
+            this.val = val;
+            this.left = left;
+            this.right = right;
+        }
+    }
 }
